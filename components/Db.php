@@ -6,7 +6,7 @@
  * Time: 3:42
  */
 
-class DB{
+class Db{
 
     public static function getConnection(){
         $paramPath = ROOT .  '/db_param.php';

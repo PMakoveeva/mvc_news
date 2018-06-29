@@ -10,7 +10,7 @@ class News{
     public static function getNewsItemById($id){
         $id = intval($id);
         if($id) {
-            $db=DB::getConnection();
+            $db=Db::getConnection();
 
             $newsList = array();
 
@@ -28,7 +28,7 @@ class News{
 
     public static function getNewsList(){
         //Запрос к БД
-//        include_once ROOT . "setting.php";
+//        include_once ROOT . "/setting.php";
 //        function connect(){
 //            $mysql=new mysqli(HOST, USER, PASSWORD, NAME);
 //            $mysql->set_charset("utf8");
@@ -44,14 +44,16 @@ class News{
 //        return $newsList;
 
 
-        $db=DB::getConnection();
-var_dump($db);
+        $db=Db::getConnection();
+       // var_dump($db);
         $newsList = array();
 
         $result = $db->query('SELECT id, title, `date`, short_content FROM publication ORDER BY `date` DESC LIMIT 10');
-       var_dump($db->errorInfo());
+       //var_dump($db->errorInfo());
 //        exit();
         $i=0;
+
+
 
         while($row = $result->fetch()){
             $newsList[$i]['id'] = $row['id'];
